@@ -1,0 +1,12 @@
+{
+  "product" : [
+      {
+          "id": "SKU-1",
+          "name": "EOS5"
+      },
+      {
+          "id": "SKU-2",
+          "name": "EOS6"
+      }
+  ]
+}
