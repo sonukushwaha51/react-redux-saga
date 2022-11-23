@@ -2,11 +2,28 @@
   "product" : [
       {
           "id": "SKU-1",
-          "name": "EOS5"
+          "name": "EOS 5",
+          "imgUrl": "https://i.ytimg.com/vi/IjwDe72W9Fg/maxresdefault.jpg",
+          "stock" : 10,
+          "description" : "The Canon EOS 5 is a semi-professional autofocus, autoexposure 35 mm SLR film camera.",
+          "price" : 35000
+
       },
       {
           "id": "SKU-2",
-          "name": "EOS6"
-      }
+          "name": "EOS 6",
+          "imgUrl": "https://m.media-amazon.com/images/I/71OJD9qlQyL._SL1500_.jpg",
+          "stock" : 10,
+          "description" : "The Canon EOS 6D is a light, full-frame DSLR, fitted with a 20.2 megapixel CMOS sensor, 11-point AutoFocus system and built-in GPS and Wi-Fi support.",
+          "price" : 45000
+      },
+      {
+        "id": "SKU-3",
+        "name": "EOS A2",
+        "imgUrl": "https://global.canon/ja/c-museum/wp-content/uploads/2015/05/film159_b.jpg",
+        "stock" : 10,
+        "description" : "Canon EOS-A2 SLR 35mm FILM Camera with Tamron 80-210mm Lens w/Hood, Vertical Grip Here is great package that includes everything you need to start shooting ",
+        "price" : 39000
+    }
   ]
 }

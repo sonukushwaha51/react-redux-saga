@@ -1,6 +1,7 @@
 import './App.css';
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import Home from './components/Home';
+import Contact from './components/Contact'
 import React from 'react';
 
 function App() {
@@ -8,7 +9,6 @@ function App() {
     <React.Fragment>
       <BrowserRouter>
       <Routes>
-        <Route path = "/home" component={<Home />} />
         <Route path='/contactus' element={<Contact />} />
         <Route path="*" element={<Home/>} />
       </Routes>
