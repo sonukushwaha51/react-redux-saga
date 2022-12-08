@@ -1,3 +1,13 @@
 export const products = {
-    product: []
+    product: [
+    ]
 }
+
+export const basketCount = {
+    value : 0
+}
+// export const addedProductList = {
+//     addedProduct : [
+        
+//     ]
+// }

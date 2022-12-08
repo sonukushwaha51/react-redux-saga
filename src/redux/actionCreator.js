@@ -1,20 +1,33 @@
 import axios from "axios";
+import { put } from "redux-saga/effects";
 import { actions } from "./actionTypes";
 
-export function fetchProducts() {
+export function* fetchProducts() {
+    let result = yield axios.get("http://localhost:3000/product").then(res => res.data)
+    console.log(result);
+    
+    yield put(fetchProductAction(result))
+}
+
+export const getProduct = () => {
     return {
-        next : function (dispatch) {
-            axios.get("http://localhost:3000/product").then((response) => {
-            console.log(response.data)
-            dispatch(fetchProductAction(response.data))
-            }).catch(err => console.log(err.message))
-        } 
+        type : actions.FETCH_PRODUCT
+    }
+}
+export const fetchProductAction = (product) => {
+    return {
+        type : actions.SET_PRODUCT,
+        payload: product
     }
 }
 
-export const fetchProductAction = (product) => {
+export const incrementBasket = () => {
     return {
-        type : actions.FETCH_PRODUCT,
-        payload : product
+        type : actions.INCREMENT_BASKET
+    }
+}
+export const decrementBasket = () => {
+    return {
+        type : actions.DECREMENT_BASKET
     }
 }

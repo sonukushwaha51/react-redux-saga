@@ -6,6 +6,7 @@ function* watcherFetchProduct() {
     yield takeEvery(actions.FETCH_PRODUCT, fetchProducts)
 } 
 
+
 export default function* rootSaga() {
     yield all([
       watcherFetchProduct()
