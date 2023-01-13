@@ -12,6 +12,9 @@ function MainBlock() {
             </div>
             <div className = "container">
                 <div className = "row">
+{/* //<Suspense fallback={<><p>Loading Products</p><Spinner /></>}>
+                    <Product />
+                    </Suspense> */}
                     <Product />
                 </div>
             </div>
