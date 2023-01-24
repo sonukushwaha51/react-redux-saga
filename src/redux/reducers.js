@@ -1,6 +1,6 @@
 import { combineReducers } from "redux";
 import { actions } from "./actionTypes";
-import { basketCount, products } from "./state";
+import { addedProductList, basketAmount, basketCount, products } from "./state";
 
 export const fetchProductReducer = (state = products,action) => {
     switch(action.type) {
@@ -27,8 +27,33 @@ export const changeBasketCount = (state = basketCount, action) => {
             return state
     }
 }
+export const addedProductToBasket = (state = addedProductList, action) => {
+    switch(action.type) {
+        case actions.ADD_TO_CART:
+            return {
+                addedProduct : [...state.addedProduct, action.payload]
+            }
+        default:
+            return state
+    }
+}
+
+export const calculateAmount = (state = basketAmount, action) => {
+    switch(action.type) {
+        case actions.CALCULATE_CART_AMOUNT:
+            return {
+                amountWithoutTax: 0.80 * action.payload,
+                taxAmount: 0.20 * action.payload,
+                totalAmount: action.payload
+            }
+        default:
+            return state
+    }
+}
 
 export const reducer = combineReducers({
     fetchProduct : fetchProductReducer,
-    changeBasket : changeBasketCount
+    changeBasket : changeBasketCount,
+    addToBasket : addedProductToBasket,
+    calculateAmount: calculateAmount
 })

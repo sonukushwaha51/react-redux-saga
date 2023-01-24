@@ -6,6 +6,13 @@ function* watcherFetchProduct() {
     yield takeEvery(actions.FETCH_PRODUCT, fetchProducts)
 } 
 
+// function* watcherAddProductToBasket() {
+//   yield takeEvery(actions.ADD_TO_CART)
+// }
+
+// function* watcherRemoveProductFromBasket() {
+//   yield takeEvery(actions.REMOVE_CART)
+// }
 
 export default function* rootSaga() {
     yield all([

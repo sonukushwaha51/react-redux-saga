@@ -1,5 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import {NavLink} from "react-router-dom";
 
 function SearchBlock() {
 
@@ -29,6 +30,7 @@ function SearchBlock() {
                             <button type="button" className="btn btn-outline-info">LOGIN</button>
                                 
                             </div>
+                            <NavLink className="visit-cart" to = "/mycart">
                             <div className="cart-summary">
                                     
                                     <i className="bi bi-basket3">
@@ -40,6 +42,7 @@ function SearchBlock() {
                                         basketCount > 0 ? <span className="basket-count">{basketCount}</span> : ''
                                     }
                             </div>
+                            </NavLink>
                         </div>
                     </div>
                 </div>

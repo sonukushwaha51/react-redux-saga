@@ -31,3 +31,23 @@ export const decrementBasket = () => {
         type : actions.DECREMENT_BASKET
     }
 }
+
+export const addToCart = (data) => {
+    return {
+        type: actions.ADD_TO_CART,
+        payload : data
+    }
+}
+
+export const removeFromCart = () => {
+    return {
+        type: actions.REMOVE_CART
+    }
+}
+
+export const calculateAmountDispatch = (totalAmount) => {
+    return {
+        type: actions.CALCULATE_CART_AMOUNT,
+        payload : totalAmount
+    }
+}

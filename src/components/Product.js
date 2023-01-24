@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getProduct, incrementBasket } from "../redux/actionCreator";
+import { addToCart, getProduct, incrementBasket } from "../redux/actionCreator";
 
 function Product() {
     const dispatch = useDispatch();
@@ -8,10 +8,13 @@ function Product() {
     const getProductList = useSelector(state => state.fetchProduct.product)
     useEffect(() => {
         dispatch(getProduct())      
-    },[dispatch])
-    const addToBasket = () => {
+    },[dispatch]);
+
+    const addToBasket = (item) => {
         dispatch(incrementBasket())
+        dispatch(addToCart(item))
     }
+
     return(
         <React.Fragment>
             <div className="product">
@@ -38,9 +41,10 @@ function Product() {
                                     </div>
                                     <div className="action-buttons">
                                         {product.stock > 0 ?
-                                            <button className="btn btn-success add-to-basket" onClick={addToBasket}>ADD TO CART</button> :
+                                            <button className="btn btn-success add-to-basket" onClick={()=> addToBasket(product)}>ADD TO CART</button> :
                                             <button className="btn btn-primary notify-me">NOTIFY ME</button>
                                         }
+
                                         <button className="btn btn-primary add-to-wishlist">ADD TO WISHLIST</button>
                                     </div>
                                 </div>
