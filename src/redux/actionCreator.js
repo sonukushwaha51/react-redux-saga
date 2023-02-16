@@ -4,7 +4,6 @@ import { actions } from "./actionTypes";
 
 export function* fetchProducts() {
     let result = yield axios.get("http://localhost:3000/product").then(res => res.data)
-    console.log(result);
     
     yield put(fetchProductAction(result))
 }
@@ -31,6 +30,23 @@ export const decrementBasket = () => {
         type : actions.DECREMENT_BASKET
     }
 }
+export const resetBasketCount = () => {
+    return {
+        type : actions.RESET_BASKET
+    }
+}
+export const decreaseBasketCount = (data) => {
+    return {
+        type: actions.DECREMENT_BASKET_QUANTITY,
+        payload: data
+    }
+}
+export const decrementCartQuantity = (product) => {
+    return {
+        type: actions.DECREMENT_QUANTITY,
+        payload: product
+    }
+}
 
 export const addToCart = (data) => {
     return {
@@ -39,12 +55,18 @@ export const addToCart = (data) => {
     }
 }
 
-export const removeFromCart = () => {
+export const removeFromCart = (productId) => {
     return {
-        type: actions.REMOVE_CART
+        type: actions.REMOVE_CART,
+        payload: productId
     }
 }
 
+export const removeAllCartItem = () => {
+    return {
+        type: actions.EMPTY_CART,
+    }
+}
 export const calculateAmountDispatch = (totalAmount) => {
     return {
         type: actions.CALCULATE_CART_AMOUNT,

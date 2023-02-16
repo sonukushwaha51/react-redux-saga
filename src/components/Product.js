@@ -13,6 +13,7 @@ function Product() {
     const addToBasket = (item) => {
         dispatch(incrementBasket())
         dispatch(addToCart(item))
+        
     }
 
     return(

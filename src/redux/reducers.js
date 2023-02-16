@@ -23,6 +23,14 @@ export const changeBasketCount = (state = basketCount, action) => {
             return {
                 value: state.value - 1
             }
+        case actions.RESET_BASKET: 
+            return  {
+                value : 0
+            }
+        case actions.DECREMENT_BASKET_QUANTITY: 
+            return {
+                value : state.value - action.payload
+            }
         default:
             return state
     }
@@ -30,9 +38,55 @@ export const changeBasketCount = (state = basketCount, action) => {
 export const addedProductToBasket = (state = addedProductList, action) => {
     switch(action.type) {
         case actions.ADD_TO_CART:
-            return {
-                addedProduct : [...state.addedProduct, action.payload]
+            console.log(state.addedProduct)
+            // const matchedProduct = state.addedProduct.filter((element) => element.cartProduct.id !== action.payload.id);
+            // console.log(matchedProduct)
+            if(state.addedProduct.length > 0) {
+                var a = 0;
+                state.addedProduct.forEach((product) => {
+                    if(product.cartProduct.id === action.payload.id) {
+                        product.quantity++;
+                        a++;
+                    }
+                })
+                if(a === 0 ) {
+                    return {
+                        addedProduct : [...state.addedProduct, {
+                            cartProduct : action.payload,
+                            quantity : 1
+                        }]
+                    }
+                }
+                else {
+                    return {
+                        addedProduct : [...state.addedProduct]
+                    }
+                }
+            } 
+                
+            else {
+                return {
+                    addedProduct : [...state.addedProduct, {
+                        cartProduct : action.payload,
+                        quantity : 1
+                    }]
+                }
             }
+        case actions.REMOVE_CART:
+            console.log(state.addedProduct)
+            console.log(action.payload.cartProduct.id)
+            return {
+                addedProduct : state.addedProduct.filter((product) => product.cartProduct.id !== action.payload.cartProduct.id)
+            }
+        case actions.DECREMENT_QUANTITY:
+             action.payload.quantity = action.payload.quantity - 1;
+             return {
+                addedProduct: [...state.addedProduct]
+             }
+        case actions.EMPTY_CART: 
+            return {
+                addedProduct : []
+            }  
         default:
             return state
     }

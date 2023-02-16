@@ -7,9 +7,7 @@ export const basketCount = {
     value : 0
 }
 export const addedProductList = {
-    addedProduct : [
-        
-    ]
+    addedProduct : []
 }
 
 export const basketAmount = {
