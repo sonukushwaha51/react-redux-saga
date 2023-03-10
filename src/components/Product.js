@@ -1,8 +1,10 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart, getProduct, incrementBasket } from "../redux/actionCreator";
+import {NavLink} from "react-router-dom";
 
 function Product() {
+
     const dispatch = useDispatch();
 
     const getProductList = useSelector(state => state.fetchProduct.product)
@@ -30,7 +32,9 @@ function Product() {
                                     </div>
                                 </div>
                                 <div className="product-details">
-                                    <h2 className="product-name">{product.name}</h2>
+                                    <h2 className="product-name">
+                                        <NavLink to = {`/product-detail/${product.id}`}>{product.name}</NavLink>
+                                    </h2>
                                     <p className="product-description">{product.description}</p>
                                 </div>
                                 <div className="product-action">
