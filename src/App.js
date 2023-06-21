@@ -5,6 +5,7 @@ import Contact from './components/Contact'
 import React from 'react';
 import Cart from './components/Cart'
 import ProductDetail from './components/ProductDetail';
+import Payment from './components/Payment';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/mycart" element = {<Cart />} />
         <Route path="*" element={<Home/>} />
         <Route path="/product-detail/:skuId" element={<ProductDetail />} /> 
+        <Route path="/checkout" element={<Payment />} />
       </Routes>
       </BrowserRouter>
     </React.Fragment>

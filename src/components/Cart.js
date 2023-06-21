@@ -4,6 +4,7 @@ import { Button } from "reactstrap";
 import { addToCart, calculateAmountDispatch, removeFromCart , removeAllCartItem, resetBasketCount, decrementCartQuantity, decrementBasket, incrementBasket, decreaseBasketCount} from "../redux/actionCreator";
 import FooterComponent from "./FooterComp";
 import HeaderComponent from "./HeaderComp";
+import {NavLink} from "react-router-dom";
 
 function Cart() {
     const cartItem = useSelector((state) => state.addToBasket.addedProduct)
@@ -79,7 +80,7 @@ function Cart() {
                             <h3 className="tax-amount"><span>Tax Amount:</span><span>{amount.taxAmount}</span></h3>
                             <h3 className="total-amount"><span>Total Amount:</span><span>{amount.totalAmount}</span></h3>
                             <div className="cart-checkout-button">
-                                <Button color="primary">CHECKOUT NOW</Button>
+                                <Button color="primary"><NavLink to="/checkout">CHECKOUT NOW</NavLink></Button>
                             </div>
                         </div>
                         <div className="empty-cart-section">
