@@ -1,0 +1,9 @@
+steps:
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args:
+      - run
+      - deploy
+      - react-redux
+      - --allow-unauthenticated
+      - --region=us-central1
+      - --source=.
